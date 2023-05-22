@@ -12,10 +12,6 @@ export default function App(props: AppProps) {
         <title>Fresh project | starter code</title>
         <link rel="icon" type="image/png" href="../favicon.ico"></link>
         <link rel="stylesheet" href="../styles/tailwind.css" />
-        <meta
-          name="description"
-          content="Computer enthusiast and junior full-stack web developer"
-        />
       </Head>
       <body>
         <Component />
