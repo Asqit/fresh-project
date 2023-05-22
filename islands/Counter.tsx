@@ -10,8 +10,8 @@ export default function Counter(props: CounterProps) {
   return (
     <div className={"text-center"}>
       <p>{count}</p>
-      <Button onClick={() => setCount(count - 1)}>-1</Button>
-      <Button onClick={() => setCount(count + 1)}>+1</Button>
+      <Button onClick={() => setCount((p) => p - 1)}>-</Button>
+      <Button onClick={() => setCount((p) => p + 1)}>+</Button>
     </div>
   );
 }
