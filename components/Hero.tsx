@@ -3,7 +3,7 @@ import { asset } from "$fresh/runtime.ts";
 export default function Hero() {
   return (
     <section className={"bg-green-300"}>
-      <div className={"p-8 container max-w-5xl h-full mx-auto text-center"}>
+      <div className={"p-16 container max-w-5xl h-full mx-auto text-center"}>
         <a rel="external" href={"https://fresh.deno.dev/"} target={"_blank"}>
           <div className={"flex flex-col items-center justify-center my-4"}>
             <img

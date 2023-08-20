@@ -2,5 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Extending our class system */
 @layer components {
 }

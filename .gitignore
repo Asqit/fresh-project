@@ -1,2 +1,8 @@
+# ignore deno cache
 deno.lock
+
+# ignore tailwind binary
 tailwindcss
+
+# ignore AoT build
+_fresh

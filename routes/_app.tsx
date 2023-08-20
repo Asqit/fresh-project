@@ -13,7 +13,7 @@ export default function App(props: AppProps) {
         <link rel="icon" type="image/png" href="../favicon.ico"></link>
         <link rel="stylesheet" href="../styles/tailwind.css" />
       </Head>
-      <body>
+      <body className="antialiased">
         <Component />
       </body>
     </html>

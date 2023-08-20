@@ -1,7 +1,42 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Author: Ondřej Tuček
-# Date: 6.7.2023
-# Description: shell script, that prepares envinroment
+# Date: 19.6.2023
+# Description: Shell script, that prepares the development envinroment
+
+function fetch_tailwind {
+  echo "Initiating fetch...($1)"
+  curl -sLO "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/$1"
+  
+  echo "Making tailwind executable"
+  chmod +x $1
+
+  echo "Renaming to 'tailwindcss'"
+  mv $1 tailwindcss
+}
+
+function evaluate_platform {
+  local os_type=$(uname)
+  local cpu_arch=$(uname -m)
+  local target="tailwindcss"
+
+  if [[ $os_type == "Linux" ]]; then 
+    target+="-linux"
+  elif [[ $os_type == "Darwin" ]]; then
+    target+="-macos"
+  else 
+    echo "Unhandled platform..."
+    echo "Sorry, but you have to obtain a copy on your own"
+    exit 1
+  fi
+
+  if [[ $cpu_arch == "x86_64" ]]; then
+    target+="-x64"
+  else 
+    target+="-arm64"
+  fi
+
+  echo "$target"
+}
 
 function fetch_deno {
     echo "Fetching deno install script"
@@ -21,10 +56,19 @@ function fetch_deno {
     fi
 }
 
-if ! [ -x "$(command -v deno)" ]; then
+
+function main {
+  if ! [ -x "$(command -v deno)" ]; then
     echo "Installing deno runtime"
     fetch_deno
-fi
+  fi
 
-sh fetch_tailwind.sh
+  if [ ! -e "tailwindcss" ]; then 
+    local target=$(evaluate_platform)
+    fetch_tailwind "$target"
+  else 
+    exit 0
+  fi
+}
 
+main
