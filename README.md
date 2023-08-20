@@ -1,26 +1,14 @@
 # Fresh Project
 
-This repository contains starter code for projects made with `fresh`. This
-project uses regular `tailwindcss-cli` instead of default `twind`.
+Template repository for creating projects with `fresh`, but instead of using `twind`, using the original `Tailwind Css`.
 
-## Before start the project
+## Before Development
 
-Before actually firing up the deno server, it is **required** to fetch tailwind
-css and have deno runtime installed. Linux / Mac users can use the prepared
-shell scripts, that will automatically prepare the environment.
+**Warning:** before you start doing anything, it is **required** to have deno runtime installed. For macOS and Linux users I have `install.sh`script, that automatically installs everything. Windows users and others (like BSD), you have to prepare the env. on your own. 
 
-So if you don't have deno runtime, you can use the `install.sh` script, that
-will install deno and fetch copy of tailwind css for your platform and
-architecture.
+if you have the `deno` env. prepared and ready, you can continue by obtainig copy of [tailwind-cli](https://github.com/tailwindlabs/tailwindcss/releases). Mac OS and Linux can skip this process by simply running the `install.sh` script. Once you have to binary file, you should rename it to `tailwindcss` as that is specified in the `deno.json > task > start`
 
-If you do have deno runtime installed, use only the `fetch_tailwind.sh` script.
+## Deploying
 
-## Starting the project
-
-To start the project, run following command:
-
-```sh
-deno task start
-```
-
-Thank you and GL 🚀
+The repository contains github action specialized for deployments. It is recomended to use the action to make optimized builds. 
+**Warning,** to use the deploy action, you have to update it a little to match your needs. (project title...)
